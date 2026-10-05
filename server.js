@@ -4,92 +4,90 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// -----------------------------
+// View engine
+// -----------------------------
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
 
+// -----------------------------
+// Middleware
+// -----------------------------
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    maxAge: "1d"
+  })
+);
+
+// -----------------------------
+// Portfolio data
+// -----------------------------
 const profile = {
   name: "Bimal Kapadi",
-  shortName: "BK",
-  title: "Civil Engineer",
-  specialty: "Structural Engineering",
-  tagline: "Building with precision, solving with purpose.",
-  location: "Dhanusha, Madhesh Province, Nepal",
-  email: "bimalkapadi2017@gmail.com",
-  phone: "+977-9807855406",
-  phoneRaw: "+9779807855406",
-  languages: ["Nepali", "English", "Hindi", "Maithili"]
+  title: "Civil Engineer • Structural Engineering",
+  location: "Janakpur, Dhanusha, Nepal",
+  summary:
+    "Civil Engineer with M.Tech specialization in Structural Engineering and practical experience in site engineering, construction coordination, quality control, and project execution.",
+  availability: "Open to professional opportunities"
 };
-
-const about = [
-  "I am a highly motivated and inspiring civil engineering professional with a multidisciplinary academic background and experience in related fields of study.",
-  "I hold a Master of Technology in Structural Engineering and a Bachelor of Technology in Civil Engineering. My professional approach combines technical knowledge, practical thinking, communication, leadership and problem-solving.",
-  "I want to work in a challenging environment where I can stay on my toes and contribute to both my professional growth and the development of the organization."
-];
 
 const experience = [
   {
+    period: "Sep 2024 — Present",
     role: "Site Engineer",
-    company: "Raman Construction",
-    project: "Guangdong Yuantian-Raman J/V",
-    date: "September 2024 — Present",
+    company: "Raman Construction — Guangdong Yuantian-Raman J/V",
     location: "Janakpur-09, Dhanusha, Nepal",
-    icon: "🏗️",
-    current: true,
-    desc: "Working as a Site Engineer with responsibility for practical construction-site activities, engineering coordination and professional execution of assigned work."
+    points: [
+      "Supervising site activities and coordinating day-to-day construction work.",
+      "Monitoring execution, workmanship, materials, and project requirements.",
+      "Coordinating teams and maintaining effective communication between site stakeholders."
+    ]
   },
   {
+    period: "Nov 2019 — Mar 2022",
     role: "Civil Engineer",
     company: "Niyatra Consult Pvt. Ltd.",
-    project: "",
-    date: "November 2019 — March 2022",
     location: "Kupondole, Lalitpur, Nepal",
-    icon: "📐",
-    current: false,
-    desc: "Worked as a Civil Engineer, contributing professional civil engineering knowledge and supporting engineering-related assignments and project activities."
+    points: [
+      "Supported engineering and construction-related assignments.",
+      "Coordinated technical work and maintained professional communication with project stakeholders.",
+      "Applied civil engineering knowledge to practical project requirements."
+    ]
   }
 ];
 
 const education = [
   {
-    degree: "Master of Technology",
-    field: "Structural Engineering",
-    school: "Dr. K. N. Modi University",
-    location: "Newai, Tonk, Rajasthan, India",
-    grade: "7.76 CGPA",
     period: "2022 — 2024",
-    certificate: "26 Jul, 2024",
-    icon: "🎓"
+    degree: "M.Tech Structural Engineering",
+    institution: "Dr. K. N. Modi University",
+    location: "Newai, Tonk, Rajasthan, India",
+    result: "7.76 CGPA"
   },
   {
-    degree: "Bachelor of Technology",
-    field: "Civil Engineering",
-    school: "Uttarakhand Technical University / J B Institute of Technology",
-    location: "Dehradun, India",
-    grade: "68.66%",
     period: "2015 — 2019",
-    certificate: "14 Aug, 2019",
-    icon: "🏛️"
+    degree: "B.Tech Civil Engineering",
+    institution:
+      "Uttarakhand Technical University / J B Institute of Technology",
+    location: "Dehradun, India",
+    result: "68.66%"
   },
   {
-    degree: "High School",
-    field: "Science",
-    school: "Model H S School",
-    location: "Janakpur, Dhanusha, Nepal",
-    grade: "57.90%",
     period: "2012 — 2014",
-    certificate: "09 Jul, 2015",
-    icon: "📚"
+    degree: "High School — Science",
+    institution: "Model H S School",
+    location: "Janakpur, Dhanusha, Nepal",
+    result: "57.90%"
   },
   {
-    degree: "School",
-    field: "",
-    school: "Fakirchandra Gami Ma Vi",
+    period: "Through 2012",
+    degree: "School Education",
+    institution: "Fakirchandra Gami Ma Vi",
     location: "Barkurba, Nepal",
-    grade: "45.63%",
-    period: "— 2012",
-    certificate: "13 Jun, 2012",
-    icon: "🏫"
+    result: "45.63%"
   }
 ];
 
@@ -104,39 +102,66 @@ const skills = [
   "Pressure Management"
 ];
 
-const traits = [
-  "Remain calm and professional throughout incidents.",
-  "Excellent written and verbal communication.",
-  "Resourceful problem solver for complex situations.",
-  "Ability to work effectively under pressure."
+const languages = [
+  "Nepali",
+  "English",
+  "Hindi",
+  "Maithili"
 ];
 
 const reference = {
   name: "Durgesh Nandan",
-  organization: "Dr. K. N. Modi University",
-  designation: "Assistant Professor, Department of Civil Engineering",
+  role: "Assistant Professor, Department of Civil Engineering",
+  institution: "Dr. K. N. Modi University",
   phone: "+91-9929710911",
   email: "registrar@dknmu.org",
   website: "www.dknmu.org"
 };
 
+// -----------------------------
+// Main portfolio page
+// -----------------------------
 app.get("/", (req, res) => {
   res.render("index", {
     profile,
-    about,
     experience,
     education,
     skills,
-    traits,
-    reference,
-    year: new Date().getFullYear()
+    languages,
+    reference
   });
 });
 
+// -----------------------------
+// Health check
+// -----------------------------
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Bimal Kapadi portfolio is running",
+    timestamp: new Date().toISOString()
+  });
+});
+
+// -----------------------------
+// 404 handler
+// -----------------------------
 app.use((req, res) => {
   res.status(404).send("Page not found");
 });
 
-app.listen(PORT, () => {
-  console.log(`Bimal Kapadi portfolio running at http://localhost:${PORT}`);
-});
+// -----------------------------
+// Local development
+// -----------------------------
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(
+      `Bimal Kapadi portfolio running at http://localhost:${PORT}`
+    );
+  });
+}
+
+// -----------------------------
+// Vercel export
+// -----------------------------
+module.exports = app;
