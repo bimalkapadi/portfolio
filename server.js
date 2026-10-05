@@ -4,27 +4,18 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// -----------------------------
-// View engine
-// -----------------------------
+// EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// -----------------------------
 // Middleware
-// -----------------------------
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(
-  express.static(path.join(__dirname, "public"), {
-    maxAge: "1d"
-  })
-);
+// Static files
+app.use(express.static(path.join(__dirname, "public")));
 
-// -----------------------------
 // Portfolio data
-// -----------------------------
 const profile = {
   name: "Bimal Kapadi",
   title: "Civil Engineer • Structural Engineering",
@@ -118,9 +109,7 @@ const reference = {
   website: "www.dknmu.org"
 };
 
-// -----------------------------
-// Main portfolio page
-// -----------------------------
+// Home page
 app.get("/", (req, res) => {
   res.render("index", {
     profile,
@@ -132,36 +121,25 @@ app.get("/", (req, res) => {
   });
 });
 
-// -----------------------------
 // Health check
-// -----------------------------
 app.get("/api/health", (req, res) => {
-  res.status(200).json({
+  res.json({
     success: true,
-    message: "Bimal Kapadi portfolio is running",
-    timestamp: new Date().toISOString()
+    message: "Bimal Kapadi portfolio is working"
   });
 });
 
-// -----------------------------
-// 404 handler
-// -----------------------------
+// 404
 app.use((req, res) => {
   res.status(404).send("Page not found");
 });
 
-// -----------------------------
-// Local development
-// -----------------------------
+// Local development only
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(
-      `Bimal Kapadi portfolio running at http://localhost:${PORT}`
-    );
+    console.log(`Portfolio running at http://localhost:${PORT}`);
   });
 }
 
-// -----------------------------
-// Vercel export
-// -----------------------------
+// Export for Vercel
 module.exports = app;
