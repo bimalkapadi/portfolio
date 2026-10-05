@@ -1,0 +1,19 @@
+portfolio/
+│
+├── api/
+│   └── index.js
+│
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+│
+├── views/
+│   └── index.ejs
+│
+├── server.js
+├── package.json
+├── vercel.json
+├── .gitignore
+└── README.md
