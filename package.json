@@ -1,11 +1,14 @@
 {
   "name": "bimal-kapadi-portfolio",
   "version": "1.0.0",
-  "description": "Bimal Kapadi Civil / Structural Engineer portfolio",
+  "description": "Bimal Kapadi Civil and Structural Engineering Portfolio",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": "24.x"
   },
   "dependencies": {
     "ejs": "^3.1.10",
