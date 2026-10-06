@@ -139,8 +139,8 @@
           </div>
 
           <div class="card-bottom">
-            <strong>Construction Engineering Management</strong>
-            <span>2026 — 2028</span>
+            <strong>Civil Engineer</strong>
+            <span>Professional Experience</span>
           </div>
 
         </div>
@@ -161,8 +161,8 @@
         </div>
 
         <div class="stat reveal">
-          <strong>02</strong>
-          <span>Professional Roles</span>
+          <strong>01</strong>
+          <span>Professional Role</span>
         </div>
 
         <div class="stat reveal">
@@ -353,6 +353,12 @@
                 <%= item.location %>
               </small>
 
+              <% if (item.result) { %>
+                <strong>
+                  <%= item.result %>
+                </strong>
+              <% } %>
+
             </article>
 
           <% }) %>
@@ -403,6 +409,11 @@
 
         </div>
 
+        <div class="training-card reveal">
+          <span>SOFTWARE TRAINING</span>
+          <strong><%= training.institute %></strong>
+          <small><%= training.focus %></small>
+        </div>
 
         <div class="language-row reveal">
 
@@ -440,7 +451,7 @@
           </h2>
 
           <p>
-            Professional reference available from the CV.
+            Get in touch for professional collaboration, engineering opportunities, and construction management projects.
           </p>
 
         </div>
@@ -448,29 +459,23 @@
 
         <div class="reference">
 
-          <strong>
-            <%= reference.name %>
-          </strong>
+          <strong>Bimal Kapadi</strong>
 
-          <span>
-            <%= reference.role %>
-          </span>
+          <span>Civil Engineer • Structural Engineering</span>
 
-          <span>
-            <%= reference.institution %>
-          </span>
-
-          <a href="tel:<%= reference.phone.replace(/[^0-9+]/g, '') %>">
-            <%= reference.phone %>
+          <a href="mailto:<%= contact.email %>">
+            <%= contact.email %>
           </a>
 
-          <a href="mailto:<%= reference.email %>">
-            <%= reference.email %>
+          <a href="tel:<%= contact.phone.replace(/[^0-9+]/g, '') %>">
+            <%= contact.phone %>
           </a>
 
-          <span>
-            <%= reference.website %>
-          </span>
+          <a href="https://<%= contact.website %>" target="_blank" rel="noopener">
+            <%= contact.website %>
+          </a>
+
+          <span>LinkedIn: <%= contact.linkedin %></span>
 
         </div>
 
