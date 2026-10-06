@@ -186,6 +186,8 @@ nav a:hover {
 }
 
 .hero-grid {
+    margin-top: -25px;
+
   display: grid;
 
   grid-template-columns: 1.08fr 0.92fr;
