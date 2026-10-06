@@ -6,176 +6,141 @@
 
   <meta
     name="description"
-    content="<%= profile.name %> — <%= profile.title %> specializing in <%= profile.specialty %>."
+    content="Bimal Kapadi — Civil Engineer and Structural Engineering professional portfolio"
   >
 
-  <title><%= profile.name %> — <%= profile.title %></title>
+  <meta name="theme-color" content="#07111f">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <title><%= profile.name %> | <%= profile.title %></title>
 
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div class="noise"></div>
-  <div class="bg-grid"></div>
+  <div class="grid-bg"></div>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="nav">
-    <div class="container nav-inner">
+  <!-- HEADER -->
+  <header class="header" id="top">
 
-      <a class="brand" href="#home" aria-label="Home">
+    <div class="container nav">
+
+      <a class="brand" href="#top">
+
         <span class="brand-mark">BK</span>
-        <span>Bimal Kapadi</span>
+
+        <span>
+          <strong>Bimal Kapadi</strong>
+          <small>CIVIL • STRUCTURAL</small>
+        </span>
+
       </a>
 
       <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Toggle navigation"
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
       >
         ☰
       </button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
+      <nav id="navLinks">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
 
     </div>
-  </nav>
+
+  </header>
 
 
   <main>
 
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
-
-      <div class="hero-lines"></div>
+    <!-- HERO -->
+    <section class="hero section">
 
       <div class="container hero-grid">
 
-        <!-- HERO TEXT -->
         <div class="hero-copy reveal">
 
           <div class="eyebrow">
-            <span class="pulse"></span>
-            CIVIL / STRUCTURAL ENGINEERING
+            <span></span>
+            ENGINEERING PORTFOLIO
           </div>
 
           <h1>
-            <%= profile.name.split(" ")[0] %>
-            <br>
-            <span>
-              <%= profile.name.split(" ").slice(1).join(" ") %>
-            </span>
+            Building ideas into
+            <em>stronger structures.</em>
           </h1>
 
-          <p class="hero-title">
-            MSc Construction Engineering Management
-          </p>
-
-          <p class="hero-subtitle">
-            University of East London
-          </p>
-
           <p class="hero-text">
-            <%= profile.tagline %>
+            <%= profile.summary %>
           </p>
 
           <div class="hero-actions">
 
-            <a href="#education" class="btn btn-primary">
-              View Education
+            <a class="btn primary" href="#experience">
+              Explore Experience
               <span>↗</span>
             </a>
 
-            <a href="#contact" class="btn btn-ghost">
-              Get in Touch
+            <a class="btn ghost" href="#contact">
+              Contact Me
             </a>
 
           </div>
 
-          <div class="quick-info">
+          <div class="hero-meta">
 
-            <span>
-              📍 <%= profile.location %>
-            </span>
+            <div>
+              <span>ROLE</span>
+              <strong><%= profile.title %></strong>
+            </div>
 
-            <span>
-              ✉ <%= profile.email %>
-            </span>
+            <div>
+              <span>LOCATION</span>
+              <strong><%= profile.location %></strong>
+            </div>
 
           </div>
 
         </div>
 
 
-        <!-- HERO IMAGE -->
-        <div class="hero-visual reveal">
+        <!-- ENGINEERING VISUAL -->
+        <div class="engineering-card reveal">
 
-          <div class="image-frame">
+          <div class="card-top">
+            <span>STRUCTURAL PROFILE</span>
+            <span>01</span>
+          </div>
 
-            <div class="image-glow"></div>
+          <div class="blueprint">
 
-            <!-- Put your photo at:
-                 public/images/bimal.jpg
-            -->
+            <div class="crosshair"></div>
 
-            <img
-              src="/images/bimal.jpg"
-              alt="<%= profile.name %>"
-              class="profile-image"
-            >
+            <div class="beam beam-a"></div>
+            <div class="beam beam-b"></div>
 
-            <div class="image-overlay"></div>
+            <div class="column column-a"></div>
+            <div class="column column-b"></div>
 
-            <div class="image-corner corner-tl"></div>
-            <div class="image-corner corner-tr"></div>
-            <div class="image-corner corner-bl"></div>
-            <div class="image-corner corner-br"></div>
+            <div class="dimension d1">
+              BIM • SITE • STRUCTURE
+            </div>
 
-            <div class="image-label">
-              <span>ENGINEERING PROFILE</span>
-              <strong>BK / 01</strong>
+            <div class="dimension d2">
+              ENGINEERING / 01
             </div>
 
           </div>
 
-
-          <!-- Blueprint decoration -->
-          <div class="blueprint-card">
-
-            <div class="blueprint-grid"></div>
-
-            <div class="blueprint-building">
-              <div class="building-line line-1"></div>
-              <div class="building-line line-2"></div>
-              <div class="building-line line-3"></div>
-              <div class="building-line line-4"></div>
-              <div class="building-line line-5"></div>
-            </div>
-
-            <span class="blueprint-text">
-              STRUCTURAL / 01
-            </span>
-
-            <span class="blueprint-text second">
-              CONSTRUCTION
-            </span>
-
+          <div class="card-bottom">
+            <strong>Site Engineer</strong>
+            <span>2024 — Present</span>
           </div>
 
         </div>
@@ -185,98 +150,81 @@
     </section>
 
 
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="section">
+    <!-- STATS -->
+    <section class="stats section-sm">
 
-      <div class="container">
+      <div class="container stats-grid">
 
-        <div class="section-head reveal">
+        <div class="stat reveal">
+          <strong>05+</strong>
+          <span>Engineering Focus Areas</span>
+        </div>
 
-          <div class="eyebrow">
-            01 — PROFILE
-          </div>
+        <div class="stat reveal">
+          <strong>02</strong>
+          <span>Professional Roles</span>
+        </div>
+
+        <div class="stat reveal">
+          <strong>M.Tech</strong>
+          <span>Structural Engineering</span>
+        </div>
+
+        <div class="stat reveal">
+          <strong>04</strong>
+          <span>Languages</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+
+      <div class="container two-col">
+
+        <div class="section-heading reveal">
+
+          <span class="kicker">
+            01 / PROFILE
+          </span>
 
           <h2>
             Engineering with
-            <br>
-            <em>purpose.</em>
+            <span>precision.</span>
           </h2>
-
-          <p>
-            Technical knowledge supported by practical engineering
-            experience, project coordination and continuous professional
-            development.
-          </p>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="about-copy reveal">
 
-          <div class="about-copy reveal">
+          <p>
+            <%= profile.summary %>
+          </p>
 
-            <% about.forEach((paragraph) => { %>
+          <div class="mini-grid">
 
-              <p>
-                <%= paragraph %>
-              </p>
-
-            <% }) %>
-
-          </div>
-
-
-          <div class="stats reveal">
-
-            <div class="stat">
-
-              <strong>MSc</strong>
-
-              <span>
-                Construction Engineering
-                <br>
-                Management
-              </span>
-
+            <div>
+              <small>SPECIALIZATION</small>
+              <strong>Structural Engineering</strong>
             </div>
 
-
-            <div class="stat">
-
-              <strong>2026–28</strong>
-
-              <span>
-                Master's
-                <br>
-                Programme
-              </span>
-
+            <div>
+              <small>CURRENT ROLE</small>
+              <strong>Site Engineer</strong>
             </div>
 
-
-            <div class="stat">
-
-              <strong>UEL</strong>
-
-              <span>
-                University of
-                <br>
-                East London
-              </span>
-
+            <div>
+              <small>BASE</small>
+              <strong>Janakpur, Nepal</strong>
             </div>
 
-
-            <div class="stat">
-
-              <strong>4</strong>
-
-              <span>
-                Languages
-                <br>
-                Spoken
-              </span>
-
+            <div>
+              <small>STATUS</small>
+              <strong><%= profile.availability %></strong>
             </div>
 
           </div>
@@ -288,85 +236,64 @@
     </section>
 
 
-    <!-- ================= EXPERIENCE ================= -->
-    <section id="experience" class="section dark-section">
+    <!-- EXPERIENCE -->
+    <section class="section dark-section" id="experience">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
-          <div class="eyebrow">
-            02 — EXPERIENCE
-          </div>
+          <span class="kicker">
+            02 / EXPERIENCE
+          </span>
 
           <h2>
             Professional
-            <br>
-            <em>journey.</em>
+            <span>journey.</span>
           </h2>
-
-          <p>
-            Professional experience across civil engineering,
-            construction and project environments.
-          </p>
 
         </div>
 
 
         <div class="timeline">
 
-          <% experience.forEach((job, index) => { %>
+          <% experience.forEach((item, i) => { %>
 
             <article class="timeline-item reveal">
 
               <div class="timeline-marker">
-                <%= job.icon || "◆" %>
+                <%= String(i + 1).padStart(2, "0") %>
               </div>
 
-              <div class="timeline-line"></div>
+              <div class="timeline-content">
 
-              <div class="timeline-card">
-
-                <% if (job.current) { %>
-
-                  <span class="current-badge">
-                    ● CURRENT
-                  </span>
-
-                <% } %>
-
-                <div class="job-index">
-                  <%= String(index + 1).padStart(2, "0") %>
+                <div class="timeline-date">
+                  <%= item.period %>
                 </div>
 
                 <h3>
-                  <%= job.role %>
+                  <%= item.role %>
                 </h3>
 
                 <h4>
-                  <%= job.company %>
-
-                  <% if (job.project) { %>
-
-                    <span>
-                      · <%= job.project %>
-                    </span>
-
-                  <% } %>
-
+                  <%= item.company %>
                 </h4>
 
-                <div class="job-date">
-                  <%= job.date %>
-                </div>
-
-                <p>
-                  <%= job.desc %>
+                <p class="location">
+                  ⌖ <%= item.location %>
                 </p>
 
-                <div class="location">
-                  📍 <%= job.location %>
-                </div>
+                <ul>
+
+                  <% item.points.forEach(point => { %>
+
+                    <li>
+                      <%= point %>
+                    </li>
+
+                  <% }) %>
+
+                </ul>
 
               </div>
 
@@ -381,154 +308,54 @@
     </section>
 
 
-    <!-- ================= EDUCATION ================= -->
-    <section id="education" class="section">
+    <!-- EDUCATION -->
+    <section class="section" id="education">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
-          <div class="eyebrow">
-            03 — EDUCATION
-          </div>
+          <span class="kicker">
+            03 / EDUCATION
+          </span>
 
           <h2>
             Academic
-            <br>
-            <em>foundation.</em>
+            <span>foundation.</span>
           </h2>
-
-          <p>
-            Academic qualifications and professional development
-            in construction and civil engineering.
-          </p>
 
         </div>
 
 
         <div class="education-grid">
 
-          <!-- NEW MSc EDUCATION -->
-          <article class="education-card education-feature reveal">
+          <% education.forEach(item => { %>
 
-            <div class="edu-top">
+            <article class="edu-card reveal">
 
-              <span class="edu-icon">
-                🎓
+              <span class="year">
+                <%= item.period %>
               </span>
 
-              <span class="edu-period">
-                2026 — 2028
-              </span>
-
-            </div>
-
-            <div class="edu-number">
-              01
-            </div>
-
-            <h3>
-              MSc Construction Engineering Management
-            </h3>
-
-            <h4>
-              With Industrial Placement
-            </h4>
-
-            <p class="edu-school">
-
-              University of East London
-
-              <br>
-
-              <span>
-                Docklands Campus,
-                University Way,
-                London E16 2RD,
-                United Kingdom
-              </span>
-
-            </p>
-
-            <div class="edu-bottom">
-
-              <strong>
-                MSc
-              </strong>
-
-              <small>
-                Construction Engineering Management
-              </small>
-
-            </div>
-
-          </article>
-
-
-          <!-- EXISTING EDUCATION -->
-          <% education.forEach((edu, index) => { %>
-
-            <article class="education-card reveal">
-
-              <div class="edu-top">
-
-                <span class="edu-icon">
-                  <%= edu.icon || "🎓" %>
-                </span>
-
-                <span class="edu-period">
-                  <%= edu.period %>
-                </span>
-
-              </div>
-
-              <div class="edu-number">
-                <%= String(index + 2).padStart(2, "0") %>
+              <div class="edu-icon">
+                ◆
               </div>
 
               <h3>
-                <%= edu.degree %>
+                <%= item.degree %>
               </h3>
 
-              <% if (edu.field) { %>
-
-                <h4>
-                  <%= edu.field %>
-                </h4>
-
-              <% } %>
-
-              <p class="edu-school">
-
-                <%= edu.school %>
-
-                <br>
-
-                <span>
-                  <%= edu.location %>
-                </span>
-
+              <p>
+                <%= item.institution %>
               </p>
 
-              <div class="edu-bottom">
+              <small>
+                <%= item.location %>
+              </small>
 
-                <% if (edu.grade) { %>
-
-                  <strong>
-                    <%= edu.grade %>
-                  </strong>
-
-                <% } %>
-
-                <% if (edu.certificate) { %>
-
-                  <small>
-                    <%= edu.certificate %>
-                  </small>
-
-                <% } %>
-
-              </div>
+              <strong>
+                <%= item.result %>
+              </strong>
 
             </article>
 
@@ -541,92 +368,51 @@
     </section>
 
 
-    <!-- ================= SKILLS ================= -->
-    <section id="skills" class="section skills-section">
+    <!-- SKILLS -->
+    <section class="section dark-section" id="skills">
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
-          <div class="eyebrow">
-            04 — CAPABILITIES
-          </div>
-
-          <h2>
-            Skills &
-            <br>
-            <em>strengths.</em>
-          </h2>
-
-          <p>
-            Core engineering, management and professional skills.
-          </p>
-
-        </div>
-
-
-        <div class="skills-layout">
-
-          <div class="skills-grid">
-
-            <% skills.forEach((skill, index) => { %>
-
-              <div class="skill-card reveal">
-
-                <span class="skill-number">
-                  <%= String(index + 1).padStart(2, "0") %>
-                </span>
-
-                <span>
-                  <%= skill %>
-                </span>
-
-                <b>
-                  ↗
-                </b>
-
-              </div>
-
-            <% }) %>
-
-          </div>
-
-
-          <div class="traits-card reveal">
-
-            <div class="traits-label">
-              PROFESSIONAL TRAITS
-            </div>
-
-            <% traits.forEach((trait) => { %>
-
-              <div class="trait">
-
-                <span>
-                  ✓
-                </span>
-
-                <p>
-                  <%= trait %>
-                </p>
-
-              </div>
-
-            <% }) %>
-
-          </div>
-
-        </div>
-
-
-        <!-- LANGUAGES -->
-        <div class="languages reveal">
-
-          <span>
-            Languages
+          <span class="kicker">
+            04 / CAPABILITIES
           </span>
 
-          <% profile.languages.forEach((language) => { %>
+          <h2>
+            Skills that
+            <span>move projects.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+          <% skills.forEach((skill, i) => { %>
+
+            <div class="skill reveal">
+
+              <span>
+                0<%= i + 1 %>
+              </span>
+
+              <strong>
+                <%= skill %>
+              </strong>
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+
+        <div class="language-row reveal">
+
+          <span>LANGUAGES</span>
+
+          <% languages.forEach(language => { %>
 
             <b>
               <%= language %>
@@ -641,148 +427,54 @@
     </section>
 
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section contact-section">
+    <!-- CONTACT -->
+    <section class="section" id="contact">
 
-      <div class="container contact-grid">
+      <div class="container contact-box reveal">
 
-        <div class="reveal">
+        <div>
 
-          <div class="eyebrow">
-            05 — CONTACT
-          </div>
+          <span class="kicker">
+            05 / REFERENCE
+          </span>
 
           <h2>
-            Let's build
-            <br>
-            <em>something solid.</em>
+            Let's build something
+            <span>solid.</span>
           </h2>
 
           <p>
-            Available for professional opportunities,
-            engineering projects, construction management
-            and meaningful collaboration.
+            Professional reference available from the CV.
           </p>
 
         </div>
 
 
-        <div class="contact-panel reveal">
+        <div class="reference">
 
-          <a
-            href="mailto:<%= profile.email %>"
-            class="contact-row"
-          >
+          <strong>
+            <%= reference.name %>
+          </strong>
 
-            <span>✉</span>
+          <span>
+            <%= reference.role %>
+          </span>
 
-            <div>
+          <span>
+            <%= reference.institution %>
+          </span>
 
-              <small>
-                EMAIL
-              </small>
-
-              <strong>
-                <%= profile.email %>
-              </strong>
-
-            </div>
-
-            <b>↗</b>
-
+          <a href="tel:<%= reference.phone.replace(/[^0-9+]/g, '') %>">
+            <%= reference.phone %>
           </a>
 
-
-          <a
-            href="tel:<%= profile.phoneRaw %>"
-            class="contact-row"
-          >
-
-            <span>☎</span>
-
-            <div>
-
-              <small>
-                PHONE
-              </small>
-
-              <strong>
-                <%= profile.phone %>
-              </strong>
-
-            </div>
-
-            <b>↗</b>
-
+          <a href="mailto:<%= reference.email %>">
+            <%= reference.email %>
           </a>
 
-
-          <div class="contact-row">
-
-            <span>⌖</span>
-
-            <div>
-
-              <small>
-                LOCATION
-              </small>
-
-              <strong>
-                <%= profile.location %>
-              </strong>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= REFERENCE ================= -->
-    <section class="section reference-section">
-
-      <div class="container">
-
-        <div class="reference-card reveal">
-
-          <div>
-
-            <div class="eyebrow">
-              PROFESSIONAL REFERENCE
-            </div>
-
-            <h3>
-              <%= reference.name %>
-            </h3>
-
-            <p>
-              <%= reference.designation %>
-              <br>
-              <%= reference.organization %>
-            </p>
-
-          </div>
-
-
-          <div class="reference-contact">
-
-            <a href="tel:<%= reference.phone %>">
-              <%= reference.phone %>
-            </a>
-
-            <a href="mailto:<%= reference.email %>">
-              <%= reference.email %>
-            </a>
-
-            <span>
-              <%= reference.website %>
-            </span>
-
-          </div>
+          <span>
+            <%= reference.website %>
+          </span>
 
         </div>
 
@@ -793,20 +485,20 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
 
     <div class="container footer-inner">
 
       <span>
-        © <%= year %> <%= profile.name %>
+        © <%= new Date().getFullYear() %> Bimal Kapadi
       </span>
 
       <span>
-        Built with Node.js · Express · EJS
+        CIVIL ENGINEERING • STRUCTURAL ENGINEERING
       </span>
 
-      <a href="#home">
+      <a href="#top">
         Back to top ↑
       </a>
 
