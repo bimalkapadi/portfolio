@@ -90,6 +90,19 @@ const skills = [
   "All-in-One Civil Engineering Software"
 ];
 
+const technicalSkills = [
+  "AutoCAD",
+  "Revit",
+  "STAAD.Pro",
+  "RCDC",
+  "ETABS",
+  "SAFE",
+  "Manual Excel",
+  "BIM (Building Information Modeling)",
+  "Basic Computer Skills",
+  "All-in-One Civil Engineering Software"
+];
+
 const languages = [
   "Nepali",
   "English",
@@ -125,6 +138,7 @@ app.get("/", (req, res) => {
     experience,
     education,
     skills,
+    technicalSkills,
     languages,
     training,
     contact,
