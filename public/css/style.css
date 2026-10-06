@@ -1256,3 +1256,288 @@ footer {
     border-radius: 10px;
   }
 }
+/* =========================================
+   ADVANCED MULTICOLOR BACKGROUND
+========================================= */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(0, 174, 255, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(126, 87, 255, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 255, 200, 0.09),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(255, 70, 180, 0.07),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #030914 0%,
+      #061326 35%,
+      #07182b 65%,
+      #040b18 100%
+    );
+
+  background-attachment: fixed;
+}
+
+
+/* =========================================
+   COLORFUL LIGHT ORBS
+========================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(0, 174, 255, 0.18) 0,
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(132, 76, 255, 0.16) 0,
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(0, 255, 200, 0.12) 0,
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 25% 75%,
+      rgba(255, 50, 170, 0.09) 0,
+      transparent 20%
+    );
+
+  filter: blur(35px);
+
+  animation: backgroundGlow 12s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   ENGINEERING GRID
+========================================= */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(54, 163, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(54, 163, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    rgba(0,0,0,0.7) 55%,
+    transparent 100%
+  );
+}
+
+
+/* =========================================
+   ANIMATED BACKGROUND
+========================================= */
+
+@keyframes backgroundGlow {
+
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.08) translate3d(15px, -10px, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.02) translate3d(-15px, 12px, 0);
+    opacity: 0.75;
+  }
+}
+
+
+/* =========================================
+   SECTION DEPTH
+========================================= */
+
+section {
+  position: relative;
+}
+
+section::before {
+  content: "";
+
+  position: absolute;
+  top: 10%;
+  left: 50%;
+
+  width: 500px;
+  height: 300px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(54, 163, 255, 0.035),
+    transparent 70%
+  );
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================
+   HERO MULTICOLOR GLOW
+========================================= */
+
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: -120px;
+  left: -150px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 174, 255, 0.12),
+      transparent 68%
+    );
+
+  filter: blur(10px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  right: -120px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(130, 70, 255, 0.10),
+      transparent 68%
+    );
+
+  filter: blur(15px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  body {
+    background:
+      radial-gradient(
+        circle at 20% 15%,
+        rgba(0, 174, 255, 0.13),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at 90% 25%,
+        rgba(126, 87, 255, 0.10),
+        transparent 30%
+      ),
+      linear-gradient(
+        135deg,
+        #030914,
+        #061326,
+        #040b18
+      );
+  }
+
+  body::after {
+    background-size: 30px 30px;
+    opacity: 0.7;
+  }
+
+  .hero::before,
+  .hero::after {
+    opacity: 0.6;
+    filter: blur(25px);
+  }
+}
+
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  body::before {
+    animation: none;
+  }
+}
