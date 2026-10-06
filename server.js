@@ -52,7 +52,7 @@ const education = [
     degree: "M.Tech Structural Engineering",
     institution: "Dr. K. N. Modi University",
     location: "Newai, Tonk, Rajasthan, India",
-    result: "7.76 CGPA"
+    result: ""
   },
   {
     period: "2015 — 2019",
