@@ -21,22 +21,11 @@ const profile = {
   title: "Civil Engineer • Structural Engineering",
   location: "Janakpur, Dhanusha, Nepal",
   summary:
-    "Civil Engineer with M.Tech specialization in Structural Engineering and practical experience in site engineering, construction coordination, quality control, and project execution.",
+    "Civil Engineer with M.Tech specialization in Structural Engineering, currently pursuing an MSc in Construction Engineering Management with Industrial Placement at the University of East London.",
   availability: "Open to professional opportunities"
 };
 
 const experience = [
-  {
-    period: "Sep 2024 — Present",
-    role: "Site Engineer",
-    company: "Raman Construction — Guangdong Yuantian-Raman J/V",
-    location: "Janakpur-09, Dhanusha, Nepal",
-    points: [
-      "Supervising site activities and coordinating day-to-day construction work.",
-      "Monitoring execution, workmanship, materials, and project requirements.",
-      "Coordinating teams and maintaining effective communication between site stakeholders."
-    ]
-  },
   {
     period: "Nov 2019 — Mar 2022",
     role: "Civil Engineer",
@@ -52,6 +41,13 @@ const experience = [
 
 const education = [
   {
+    period: "2026 — 2028",
+    degree: "MSc Construction Engineering Management (with Industrial Placement)",
+    institution: "University of East London",
+    location: "Docklands Campus, University Way, London E16 2RD",
+    result: ""
+  },
+  {
     period: "2022 — 2024",
     degree: "M.Tech Structural Engineering",
     institution: "Dr. K. N. Modi University",
@@ -61,36 +57,37 @@ const education = [
   {
     period: "2015 — 2019",
     degree: "B.Tech Civil Engineering",
-    institution:
-      "Uttarakhand Technical University / J B Institute of Technology",
+    institution: "Uttarakhand Technical University / J B Institute of Technology",
     location: "Dehradun, India",
-    result: "68.66%"
+    result: ""
   },
   {
     period: "2012 — 2014",
     degree: "High School — Science",
     institution: "Model H S School",
     location: "Janakpur, Dhanusha, Nepal",
-    result: "57.90%"
+    result: ""
   },
   {
     period: "Through 2012",
     degree: "School Education",
     institution: "Fakirchandra Gami Ma Vi",
     location: "Barkurba, Nepal",
-    result: "45.63%"
+    result: ""
   }
 ];
 
 const skills = [
-  "Engaging Leadership",
-  "Flexibility & Adaptability",
-  "Organizational Skills",
-  "Multitasking",
-  "Creative Problem-Solving",
-  "Employee Management",
-  "Oral & Written Communication",
-  "Pressure Management"
+  "AutoCAD",
+  "Revit",
+  "STAAD.Pro",
+  "RCDC",
+  "ETABS",
+  "SAFE",
+  "Manual Excel",
+  "BIM (Building Information Modeling)",
+  "Basic Computer Skills",
+  "All-in-One Civil Engineering Software"
 ];
 
 const languages = [
@@ -99,6 +96,18 @@ const languages = [
   "Hindi",
   "Maithili"
 ];
+
+const training = {
+  institute: "Unique Civil Software Training Institute",
+  focus: "Civil engineering software training"
+};
+
+const contact = {
+  email: "global.bimalkapadi@gmail.com",
+  phone: "+44 (0) 7344062907",
+  website: "bimalkapadi.com.np",
+  linkedin: "Bimal Kapadi"
+};
 
 const reference = {
   name: "Durgesh Nandan",
@@ -117,6 +126,8 @@ app.get("/", (req, res) => {
     education,
     skills,
     languages,
+    training,
+    contact,
     reference
   });
 });
