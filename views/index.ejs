@@ -48,6 +48,7 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
+        <a href="#technical-skills">Technical Skills</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -244,7 +245,7 @@
         <div class="section-heading reveal">
 
           <span class="kicker">
-            02 / EXPERIENCE
+            EXPERIENCE
           </span>
 
           <h2>
@@ -359,6 +360,47 @@
                 </strong>
               <% } %>
 
+            </article>
+
+          <% }) %>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section technical-section" id="technical-skills">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="kicker">
+            TECHNICAL SKILLS
+          </span>
+
+          <h2>
+            Engineering <span>toolkit.</span>
+          </h2>
+
+          <p class="section-intro">
+            Practical software and technical capabilities used across civil, structural, BIM, and construction-related work.
+          </p>
+
+        </div>
+
+        <div class="technical-skills-grid">
+
+          <% technicalSkills.forEach((skill, i) => { %>
+
+            <article class="technical-skill-card reveal">
+              <span class="technical-number"><%= String(i + 1).padStart(2, "0") %></span>
+              <div class="technical-icon">✦</div>
+              <strong><%= skill %></strong>
+              <small>Technical capability</small>
             </article>
 
           <% }) %>
