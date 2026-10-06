@@ -671,6 +671,16 @@ h2 span {
   margin-top: 8px;
 }
 
+.edu-card > strong {
+  position: absolute;
+
+  right: 24px;
+  bottom: 24px;
+
+  color: var(--accent);
+
+  font-size: 13px;
+}
 
 
 /* SKILLS */
@@ -710,6 +720,31 @@ h2 span {
 
 .skill strong {
   font-size: 14px;
+}
+
+ .training-card {
+  margin-top: 30px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: rgba(54, 163, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.training-card span {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.training-card strong {
+  font-size: 18px;
+}
+
+.training-card small {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .language-row {
