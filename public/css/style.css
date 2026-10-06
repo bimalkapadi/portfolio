@@ -671,16 +671,6 @@ h2 span {
   margin-top: 8px;
 }
 
-.edu-card > strong {
-  position: absolute;
-
-  right: 24px;
-  bottom: 24px;
-
-  color: var(--accent);
-
-  font-size: 13px;
-}
 
 
 /* SKILLS */
