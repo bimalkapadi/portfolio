@@ -71,94 +71,115 @@
   <main>
 
     <!-- HERO -->
-    <section class="hero section">
+  <section class="hero section">
+  <div class="container hero-grid">
 
-      <div class="container hero-grid">
+    <!-- LEFT COLUMN: COPY & META -->
+    <div class="hero-copy reveal visible">
 
-        <div class="hero-copy reveal">
+      <div class="eyebrow">
+        <span></span>
+        ENGINEERING PORTFOLIO
+      </div>
 
-          <div class="eyebrow">
-            <span></span>
-            ENGINEERING PORTFOLIO
-          </div>
+      <h1>
+        Building ideas into
+        <em>stronger structures.</em>
+      </h1>
 
-          <h1>
-            Building ideas into
-            <em>stronger structures.</em>
-          </h1>
+      <p class="hero-text">
+        Civil Engineer with M.Tech specialization in Structural Engineering, currently pursuing an MSc in Construction Engineering Management with Industrial Placement at the University of East London.
+      </p>
 
-          <p class="hero-text">
-            <%= profile.summary %>
-          </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#experience">
+          Explore Experience
+          <span>↗</span>
+        </a>
 
-          <div class="hero-actions">
+        <a class="btn ghost" href="#contact">
+          Contact Me
+        </a>
+      </div>
 
-            <a class="btn primary" href="#experience">
-              Explore Experience
-              <span>↗</span>
-            </a>
-
-            <a class="btn ghost" href="#contact">
-              Contact Me
-            </a>
-
-          </div>
-
-          <div class="hero-meta">
-
-            <div>
-              <span>ROLE</span>
-              <strong><%= profile.title %></strong>
-            </div>
-
-            <div>
-              <span>LOCATION</span>
-              <strong><%= profile.location %></strong>
-            </div>
-
-          </div>
-
+      <div class="hero-meta">
+        <div>
+          <span>ROLE</span>
+          <strong>Civil Engineer • Structural Engineering</strong>
         </div>
 
+        <div>
+          <span>LOCATION</span>
+          <strong>Janakpur, Dhanusha, Nepal</strong>
+        </div>
+      </div>
 
-        <!-- ENGINEERING VISUAL -->
-        <div class="engineering-card reveal">
+    </div>
 
-          <div class="card-top">
-            <span>STRUCTURAL PROFILE</span>
-            <span>01</span>
+    <!-- RIGHT COLUMN: ENGINEERING VISUALS + LIVE ANALYTICS -->
+    <div class="hero-visuals reveal visible">
+
+      <!-- ENGINEERING VISUAL -->
+      <div class="engineering-card">
+
+        <div class="card-top">
+          <span>STRUCTURAL PROFILE</span>
+          <span>01</span>
+        </div>
+
+        <div class="blueprint">
+          <div class="crosshair"></div>
+
+          <div class="beam beam-a"></div>
+          <div class="beam beam-b"></div>
+
+          <div class="column column-a"></div>
+          <div class="column column-b"></div>
+
+          <div class="dimension d1">
+            BIM • SITE • STRUCTURE
           </div>
 
-          <div class="blueprint">
-
-            <div class="crosshair"></div>
-
-            <div class="beam beam-a"></div>
-            <div class="beam beam-b"></div>
-
-            <div class="column column-a"></div>
-            <div class="column column-b"></div>
-
-            <div class="dimension d1">
-              BIM • SITE • STRUCTURE
-            </div>
-
-            <div class="dimension d2">
-              ENGINEERING / 01
-            </div>
-
+          <div class="dimension d2">
+            ENGINEERING / 01
           </div>
+        </div>
 
-          <div class="card-bottom">
-            <strong>Civil Engineer</strong>
-            <span>Professional Experience</span>
-          </div>
-
+        <div class="card-bottom">
+          <strong>Civil Engineer</strong>
+          <span>Professional Experience</span>
         </div>
 
       </div>
 
-    </section>
+      <!-- LIVE VISITOR ANALYTICS CARD -->
+      <div class="analytics-card">
+        <div class="card-header">
+          <span class="status-dot pulsing"></span>
+          <span class="card-label">LIVE VISITOR ANALYTICS</span>
+        </div>
+
+        <div class="card-body">
+          <div class="stat-group">
+            <span class="stat-label">TOTAL VISITS</span>
+            <strong class="stat-value" id="visitCount">1,284</strong>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-group location-group">
+            <span class="stat-label">LOCATION</span>
+            <strong class="stat-value" id="userLocation">Janakpur, NP</strong>
+          </div>
+        </div>
+
+        <div class="card-bracket"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
     <!-- STATS -->
