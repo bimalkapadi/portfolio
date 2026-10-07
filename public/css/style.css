@@ -1868,3 +1868,141 @@ body {
   0% { background-position: 0 0; }
   100% { background-position: 20px 20px; }
 }
+/* ==========================================================================
+   Hero Visuals Column (Right Side Stack)
+   ========================================================================== */
+.hero-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Spacing between Blueprint card and Analytics card */
+  width: 100%;
+}
+
+/* ==========================================================================
+   Live Visitor Analytics Card
+   ========================================================================== */
+.analytics-card {
+  position: relative;
+  background: rgba(12, 26, 43, 0.75);
+  border: 1px solid rgba(54, 163, 255, 0.25);
+  border-radius: 14px;
+  padding: 18px 22px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.analytics-card:hover {
+  border-color: rgba(54, 163, 255, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Card Header & Status Indicator */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cyan-glow, #00f3ff);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan-glow, #00f3ff);
+}
+
+.status-dot.pulsing {
+  animation: statusPulse 1.8s infinite ease-in-out;
+}
+
+.card-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+  color: var(--accent2, #79c7ff);
+  text-transform: uppercase;
+}
+
+/* Card Body & Stat Displays */
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted, #9cafc6);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent, #36a3ff);
+  line-height: 1;
+}
+
+.location-group .stat-value {
+  color: var(--text, #eef5ff);
+  font-size: 22px;
+}
+
+/* Vertical Divider Line */
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--line, rgba(255, 255, 255, 0.1));
+}
+
+/* Decorative Corner Accent */
+.card-bracket {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid var(--accent, #36a3ff);
+  border-bottom: 2px solid var(--accent, #36a3ff);
+  border-bottom-right-radius: 12px;
+}
+
+/* Pulsing Animation Keyframes */
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* ==========================================================================
+   Mobile Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 520px) {
+  .analytics-card {
+    padding: 14px 16px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .location-group .stat-value {
+    font-size: 18px;
+  }
+}
