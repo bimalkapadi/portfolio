@@ -42,26 +42,28 @@ document.querySelectorAll(".reveal").forEach((element) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Total Visits Counter (Increments on EVERY page load / refresh)
+  // 1. Total Visits Counter
   const visitCountEl = document.getElementById('visitCount');
 
   if (visitCountEl) {
-    const WORKSPACE = 'janakpur-portfolio';
-    const COUNTER_KEY = 'total_visits';
+    // Unique key for your portfolio site counter (change this to your unique name if needed)
+    const UNIQUE_COUNTER_KEY = 'janakpur_portfolio_visits_2026';
 
-    // Call /up directly on every page load or refresh
-    fetch(`https://api.counterapi.dev/v1/${WORKSPACE}/${COUNTER_KEY}/up`)
-      .then(response => {
-        if (!response.ok) throw new Error('Counter API error');
+    // Call CountAPI hit endpoint to increment by +1 on every page load
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${UNIQUE_COUNTER_KEY}`)
+      .then((response) => {
+        if (!response.ok) throw new Error('API request failed');
         return response.json();
       })
-      .then(data => {
-        if (data && data.count !== undefined) {
-          visitCountEl.textContent = Number(data.count).toLocaleString();
+      .then((data) => {
+        // data.value returns the new incremented count integer
+        if (data && data.value !== undefined) {
+          visitCountEl.textContent = parseInt(data.value, 10).toLocaleString();
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Visit counter error:', err);
+        // Fallback display if network or adblocker issues occur
         visitCountEl.textContent = '1,285';
       });
   }
@@ -71,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (userLocationEl) {
     fetch('https://ipapi.co/json/')
-      .then(response => {
+      .then((response) => {
         if (!response.ok) throw new Error('Network error');
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         if (data.city && data.country_code) {
           userLocationEl.textContent = `${data.city}, ${data.country_code}`;
         } else if (data.country_name) {
