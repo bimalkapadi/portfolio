@@ -149,27 +149,14 @@ const education = [
 
 
 const skills = [
-
-  "AutoCAD",
-
-  "Revit",
-
-  "STAAD.Pro",
-
-  "RCDC",
-
-  "ETABS",
-
-  "SAFE",
-
-  "Manual Excel",
-
-  "BIM (Building Information Modeling)",
-
-  "Basic Computer Skills",
-
-  "All-in-One Civil Engineering Software"
-
+  "Engaging Leadership",
+  "Flexibility & Adaptability",
+  "Organizational Skills",
+  "Multitasking",
+  "Creative Problem-Solving",
+  "Employee Management",
+  "Oral & Written Communication",
+  "Pressure Management"
 ];
 
 
