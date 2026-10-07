@@ -2006,3 +2006,16 @@ body {
     font-size: 18px;
   }
 }
+/* Fixed Engineering Card Padding */
+.engineering-card {
+  padding: 16px !important; /* Fixed property name from 'paddling' to 'padding' */
+  box-sizing: border-box;  /* Ensures padding stays inside the card width */
+  width: 100%;
+}
+
+/* Ensure padding remains 16px on mobile views */
+@media (max-width: 850px) {
+  .engineering-card {
+    padding: 16px !important;
+  }
+}
