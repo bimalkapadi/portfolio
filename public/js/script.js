@@ -34,30 +34,49 @@ const observer = new IntersectionObserver(
   }
 );
 
-
-document
-  .querySelectorAll(".reveal")
-  .forEach((element) => {
-
+// Reveal elements observer setup
+document.querySelectorAll(".reveal").forEach((element) => {
+  if (typeof observer !== 'undefined') {
     observer.observe(element);
+  }
+});
 
-  });
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Total Visits Counter (LocalStorage Cache Logic)
+  // 1. Total Visits Counter (Global Sync via CounterAPI)
   const visitCountEl = document.getElementById('visitCount');
-  
+
   if (visitCountEl) {
-    // Read previous visit count from storage or set starting base number
-    let currentVisits = parseInt(localStorage.getItem('bk_portfolio_visits') || '1284', 10);
-    
-    // Increment on new page load
-    currentVisits += 1;
-    
-    // Save updated count back to LocalStorage
-    localStorage.setItem('bk_portfolio_visits', currentVisits);
-    
-    // Format number with commas (e.g. 1,285)
-    visitCountEl.textContent = currentVisits.toLocaleString();
+    // Unique identifier for your website
+    const WORKSPACE = 'janakpur-portfolio';
+    const COUNTER_KEY = 'total_visits';
+
+    // Check if user already visited in current browser session to prevent reload spam
+    const hasVisitedThisSession = sessionStorage.getItem('visited_session');
+
+    // Use /hit to increment on new visit, or /get to just read if refreshing
+    const apiEndpoint = hasVisitedThisSession
+      ? `https://api.counterapi.dev/v1/${WORKSPACE}/${COUNTER_KEY}`
+      : `https://api.counterapi.dev/v1/${WORKSPACE}/${COUNTER_KEY}/up`;
+
+    fetch(apiEndpoint)
+      .then(response => {
+        if (!response.ok) throw new Error('Counter API error');
+        return response.json();
+      })
+      .then(data => {
+        // Mark session so refreshing doesn't artificially inflate count
+        sessionStorage.setItem('visited_session', 'true');
+        
+        // Display global count with formatted commas (e.g., 1,285)
+        if (data && data.count !== undefined) {
+          visitCountEl.textContent = Number(data.count).toLocaleString();
+        }
+      })
+      .catch(err => {
+        console.error('Visit counter error:', err);
+        // Static fallback display if API fails or is blocked
+        visitCountEl.textContent = '1,285';
+      });
   }
 
   // 2. Fetch Visitor Location using IP Geolocation API
